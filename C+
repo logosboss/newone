@@ -1,0 +1,78 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+// Функция для расчета факториала числа
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+// Функция для проверки, является ли число простым
+bool isPrime(int number) {
+    if (number < 2) {
+        return false;
+    }
+    for (int i = 2; i <= number / 2; ++i) {
+        if (number % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // Вывод приветствия
+    std::cout << "Привет, мир!" << std::endl;
+
+    // Переменные и ввод пользовательских данных
+    int a, b;
+    std::cout << "Введите два числа: ";
+    std::cin >> a >> b;
+
+    // Сложение чисел
+    int sum = a + b;
+    std::cout << "Сумма: " << sum << std::endl;
+
+    // Вывод чисел от 1 до 10
+    std::cout << "Числа от 1 до 10: ";
+    for (int i = 1; i <= 10; ++i) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    // Расчет факториала числа
+    int number;
+    std::cout << "Введите число: ";
+    std::cin >> number;
+    int fact = factorial(number);
+    std::cout << "Факториал числа " << number << ": " << fact << std::endl;
+
+    // Проверка чисел на простоту
+    std::vector<int> numbers = {2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::cout << "Простые числа: ";
+    for (int num : numbers) {
+        if (isPrime(num)) {
+            std::cout << num << " ";
+        }
+    }
+    std::cout << std::endl;
+
+    // Сортировка чисел
+    std::vector<int> unsortedNumbers = {5, 2, 9, 1, 7};
+    std::cout << "Неотсортированный массив: ";
+    for (int num : unsortedNumbers) {
+        std::cout << num << " ";
+    }
+    std::sort(unsortedNumbers.begin(), unsortedNumbers.end());
+    std::cout << "\nОтсортированный массив: ";
+    for (int num : unsortedNumbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
